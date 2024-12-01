@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database.js";
-import { Juego } from "./juego.js";
+import { Juego_genero } from "./juego_genero.js";
 
-export const Categoria = sequelize.define('categorias',{
+export const Genero = sequelize.define('generos',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -13,12 +13,12 @@ export const Categoria = sequelize.define('categorias',{
     }
 },{timestamps: false})
 
-Categoria.hasMany(Juego, {
-    foreignKey: 'categoria_id',
+Genero.hasMany(Juego_genero, {
+    foreignKey: 'genero_id',
     sourceKey: 'id'
 })
 
-Juego.belongsTo(Categoria, {
-    foreignKey: 'categoria_id',
+Juego_genero.belongsTo(Genero, {
+    foreignKey: 'genero_id',
     targetKey: 'id'
 })
