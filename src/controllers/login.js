@@ -1,5 +1,7 @@
+import { Usuario } from "../models/usuario.js"
+
 const login = (app) => {
-    app.get("/login",(req,res) => {
+    app.get("/login",async(req,resp) => {
         const {usuario,contrasenia} = req.body
 
         if(usuario == undefined || contrasenia == undefined){
@@ -11,9 +13,26 @@ const login = (app) => {
             return
         }
 
+        const usuarios = await Usuario.findAll({
+            where:{
+                nombre: usuario,
+                contrasenia: contrasenia
+            }
+        })
 
-
-        res.send(usuario)
+        if (usuarios.length > 0) {
+            // Login exitoso
+            const dataOutput = {
+                error : ""
+            }
+            resp.send(usuarios[0])
+        }else {
+            // Error login
+            const dataOutput = {
+                error : "Error en el login."
+            }
+            resp.status(400).send(dataOutput)
+        }
     })
 }
 
