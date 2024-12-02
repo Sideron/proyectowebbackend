@@ -164,7 +164,62 @@ const usuarios = (app) => {
         resp.send({
             error : ""
         })
-
+    })
+    app.delete('/usuarios/:id', async (req,resp) => {
+        const id = parseInt(req.params.id)
+        const usuarioObj = await Usuario.findAll({
+            where:{
+                id: id
+            }
+        })
+        if(usuarioObj.length <= 0){
+            resp.status(400).send({
+                error : `No se encontró usuario con id ${id}`
+            })
+            return
+        }
+        const idAdmin = await Administrador.findAll({
+            where:{
+                usuario_id: id
+            }
+        })
+        const idClient = await Cliente.findAll({
+            where:{
+                usuario_id: id
+            }
+        })
+        try {
+            if(idAdmin.length > 0){
+                await Administrador.destroy({
+                    where:{
+                        id: parseInt(idAdmin[0].dataValues.id)
+                    }
+                })
+               console.log(idAdmin[0].dataValues)
+            }
+            if(idClient.length > 0){
+                await Cliente.destroy({
+                    where:{
+                        id: parseInt(idClient[0].dataValues.id)
+                    }
+                })
+                console.log(idClient[0].dataValues)
+            }
+            await Usuario.destroy({
+                where:{
+                    id: id
+                }
+            })
+        } catch (error) {
+            resp.status(400).send({
+                error : `Error: ${error}`
+            })
+            return
+        }
+        
+        resp.send({
+            error : ""
+        })
 
     })
 }
