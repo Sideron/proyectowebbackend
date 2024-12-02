@@ -8,3 +8,4 @@ export const Juego_genero = sequelize.define('juegos_generos',{
         autoIncrement: true
     }
 },{timestamps: false})
+

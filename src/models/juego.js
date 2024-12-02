@@ -1,6 +1,9 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database.js";
 import { Juego_genero } from "./juego_genero.js";
+import { Resenia } from "./resenia.js";
+import { Juego_biblioteca } from "./juego_biblioteca.js";
+import { Juego_venta } from "./juego_venta.js";
 
 export const Juego = sequelize.define('juegos',{
     id:{
@@ -25,6 +28,36 @@ Juego.hasMany(Juego_genero,{
 })
 
 Juego_genero.belongsTo(Juego,{
+    foreignKey: 'juego_id',
+    targetKey: 'id'
+})
+
+Juego.hasMany(Resenia,{
+    foreignKey: 'juego_id',
+    sourceKey: 'id'
+})
+
+Resenia.belongsTo(Juego,{
+    foreignKey: 'juego_id',
+    targetKey: 'id'
+})
+
+Juego.hasMany(Juego_biblioteca,{
+    foreignKey: 'juego_id',
+    sourceKey: 'id'
+})
+
+Juego_biblioteca.belongsTo(Juego,{
+    foreignKey: 'juego_id',
+    targetKey: 'id'
+})
+
+Juego.hasMany(Juego_venta,{
+    foreignKey: 'juego_id',
+    sourceKey: 'id'
+})
+
+Juego_venta.belongsTo(Juego,{
     foreignKey: 'juego_id',
     targetKey: 'id'
 })
