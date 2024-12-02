@@ -4,6 +4,7 @@ import cors from "cors"
 import { sequelize } from "./database.js"
 import usuarios from "./controllers/usuarios.js"
 import juegos from "./controllers/juegos.js"
+import generos from "./controllers/generos.js"
 
 const app = express()
 app.use(bodyParser.json())
@@ -14,6 +15,7 @@ try{
 
     usuarios(app)
     juegos(app)
+    generos(app)
 
     app.listen(port,()=>{
         console.log("Conectado en el puerto "+port)
