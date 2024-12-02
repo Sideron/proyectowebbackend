@@ -15,10 +15,16 @@ export const Juego = sequelize.define('juegos',{
     nombre:{
         type: DataTypes.STRING
     },
+    descripcion:{
+        type: DataTypes.STRING
+    },
     precio_actual:{
         type: DataTypes.FLOAT
     },
     imagen_url: {
+        type: DataTypes.STRING
+    },
+    desarrollador:{
         type: DataTypes.STRING
     }
 },{timestamps:false})

@@ -5,7 +5,7 @@
 -- Dumped from database version 15.1
 -- Dumped by pg_dump version 15.1
 
--- Started on 2024-12-01 13:20:38
+-- Started on 2024-12-02 13:40:06
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 217 (class 1259 OID 24587)
+-- TOC entry 214 (class 1259 OID 32773)
 -- Name: administradores; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -36,7 +36,7 @@ CREATE TABLE public.administradores (
 ALTER TABLE public.administradores OWNER TO "Grupo2PW";
 
 --
--- TOC entry 216 (class 1259 OID 24586)
+-- TOC entry 215 (class 1259 OID 32776)
 -- Name: administradores_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -53,7 +53,7 @@ ALTER TABLE public.administradores_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3435 (class 0 OID 0)
--- Dependencies: 216
+-- Dependencies: 215
 -- Name: administradores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -61,7 +61,7 @@ ALTER SEQUENCE public.administradores_id_seq OWNED BY public.administradores.id;
 
 
 --
--- TOC entry 225 (class 1259 OID 24636)
+-- TOC entry 216 (class 1259 OID 32777)
 -- Name: bibliotecas; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -74,7 +74,7 @@ CREATE TABLE public.bibliotecas (
 ALTER TABLE public.bibliotecas OWNER TO "Grupo2PW";
 
 --
--- TOC entry 224 (class 1259 OID 24635)
+-- TOC entry 217 (class 1259 OID 32780)
 -- Name: bibliotecas_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -91,7 +91,7 @@ ALTER TABLE public.bibliotecas_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3436 (class 0 OID 0)
--- Dependencies: 224
+-- Dependencies: 217
 -- Name: bibliotecas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -99,7 +99,7 @@ ALTER SEQUENCE public.bibliotecas_id_seq OWNED BY public.bibliotecas.id;
 
 
 --
--- TOC entry 221 (class 1259 OID 24611)
+-- TOC entry 218 (class 1259 OID 32781)
 -- Name: carritos_de_compras; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -112,7 +112,7 @@ CREATE TABLE public.carritos_de_compras (
 ALTER TABLE public.carritos_de_compras OWNER TO "Grupo2PW";
 
 --
--- TOC entry 220 (class 1259 OID 24610)
+-- TOC entry 219 (class 1259 OID 32784)
 -- Name: carritos_de_compras_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -129,7 +129,7 @@ ALTER TABLE public.carritos_de_compras_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3437 (class 0 OID 0)
--- Dependencies: 220
+-- Dependencies: 219
 -- Name: carritos_de_compras_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -137,7 +137,7 @@ ALTER SEQUENCE public.carritos_de_compras_id_seq OWNED BY public.carritos_de_com
 
 
 --
--- TOC entry 227 (class 1259 OID 24648)
+-- TOC entry 220 (class 1259 OID 32785)
 -- Name: generos; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -150,7 +150,7 @@ CREATE TABLE public.generos (
 ALTER TABLE public.generos OWNER TO "Grupo2PW";
 
 --
--- TOC entry 226 (class 1259 OID 24647)
+-- TOC entry 221 (class 1259 OID 32788)
 -- Name: categorias_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -167,7 +167,7 @@ ALTER TABLE public.categorias_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3438 (class 0 OID 0)
--- Dependencies: 226
+-- Dependencies: 221
 -- Name: categorias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -175,7 +175,7 @@ ALTER SEQUENCE public.categorias_id_seq OWNED BY public.generos.id;
 
 
 --
--- TOC entry 219 (class 1259 OID 24599)
+-- TOC entry 222 (class 1259 OID 32789)
 -- Name: clientes; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -188,7 +188,7 @@ CREATE TABLE public.clientes (
 ALTER TABLE public.clientes OWNER TO "Grupo2PW";
 
 --
--- TOC entry 218 (class 1259 OID 24598)
+-- TOC entry 223 (class 1259 OID 32792)
 -- Name: clientes_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -205,7 +205,7 @@ ALTER TABLE public.clientes_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3439 (class 0 OID 0)
--- Dependencies: 218
+-- Dependencies: 223
 -- Name: clientes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -213,7 +213,7 @@ ALTER SEQUENCE public.clientes_id_seq OWNED BY public.clientes.id;
 
 
 --
--- TOC entry 229 (class 1259 OID 24655)
+-- TOC entry 224 (class 1259 OID 32793)
 -- Name: juegos; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -221,14 +221,16 @@ CREATE TABLE public.juegos (
     id integer NOT NULL,
     nombre character varying(64),
     precio_actual numeric,
-    imagen_url character varying(1024)
+    imagen_url character varying(1024),
+    descripcion character varying(1024),
+    desarrollador character varying(32)
 );
 
 
 ALTER TABLE public.juegos OWNER TO "Grupo2PW";
 
 --
--- TOC entry 235 (class 1259 OID 24705)
+-- TOC entry 225 (class 1259 OID 32798)
 -- Name: juegos_bibliotecas; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -242,7 +244,7 @@ CREATE TABLE public.juegos_bibliotecas (
 ALTER TABLE public.juegos_bibliotecas OWNER TO "Grupo2PW";
 
 --
--- TOC entry 234 (class 1259 OID 24704)
+-- TOC entry 226 (class 1259 OID 32801)
 -- Name: juegos_bibliotecas_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -259,7 +261,7 @@ ALTER TABLE public.juegos_bibliotecas_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3440 (class 0 OID 0)
--- Dependencies: 234
+-- Dependencies: 226
 -- Name: juegos_bibliotecas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -267,7 +269,7 @@ ALTER SEQUENCE public.juegos_bibliotecas_id_seq OWNED BY public.juegos_bibliotec
 
 
 --
--- TOC entry 231 (class 1259 OID 24669)
+-- TOC entry 227 (class 1259 OID 32802)
 -- Name: juegos_carritos_de_compras; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -281,7 +283,7 @@ CREATE TABLE public.juegos_carritos_de_compras (
 ALTER TABLE public.juegos_carritos_de_compras OWNER TO "Grupo2PW";
 
 --
--- TOC entry 230 (class 1259 OID 24668)
+-- TOC entry 228 (class 1259 OID 32805)
 -- Name: juegos_carritos_de_compras_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -298,7 +300,7 @@ ALTER TABLE public.juegos_carritos_de_compras_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3441 (class 0 OID 0)
--- Dependencies: 230
+-- Dependencies: 228
 -- Name: juegos_carritos_de_compras_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -306,7 +308,7 @@ ALTER SEQUENCE public.juegos_carritos_de_compras_id_seq OWNED BY public.juegos_c
 
 
 --
--- TOC entry 239 (class 1259 OID 24746)
+-- TOC entry 229 (class 1259 OID 32806)
 -- Name: juegos_generos; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -320,7 +322,7 @@ CREATE TABLE public.juegos_generos (
 ALTER TABLE public.juegos_generos OWNER TO "Grupo2PW";
 
 --
--- TOC entry 238 (class 1259 OID 24745)
+-- TOC entry 230 (class 1259 OID 32809)
 -- Name: juegos_generos_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -337,7 +339,7 @@ ALTER TABLE public.juegos_generos_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3442 (class 0 OID 0)
--- Dependencies: 238
+-- Dependencies: 230
 -- Name: juegos_generos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -345,7 +347,7 @@ ALTER SEQUENCE public.juegos_generos_id_seq OWNED BY public.juegos_generos.id;
 
 
 --
--- TOC entry 228 (class 1259 OID 24654)
+-- TOC entry 231 (class 1259 OID 32810)
 -- Name: juegos_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -362,7 +364,7 @@ ALTER TABLE public.juegos_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3443 (class 0 OID 0)
--- Dependencies: 228
+-- Dependencies: 231
 -- Name: juegos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -370,7 +372,7 @@ ALTER SEQUENCE public.juegos_id_seq OWNED BY public.juegos.id;
 
 
 --
--- TOC entry 233 (class 1259 OID 24686)
+-- TOC entry 232 (class 1259 OID 32811)
 -- Name: juegos_ventas; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -385,7 +387,7 @@ CREATE TABLE public.juegos_ventas (
 ALTER TABLE public.juegos_ventas OWNER TO "Grupo2PW";
 
 --
--- TOC entry 232 (class 1259 OID 24685)
+-- TOC entry 233 (class 1259 OID 32816)
 -- Name: juegos_ventas_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -402,7 +404,7 @@ ALTER TABLE public.juegos_ventas_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3444 (class 0 OID 0)
--- Dependencies: 232
+-- Dependencies: 233
 -- Name: juegos_ventas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -410,7 +412,7 @@ ALTER SEQUENCE public.juegos_ventas_id_seq OWNED BY public.juegos_ventas.id;
 
 
 --
--- TOC entry 237 (class 1259 OID 24722)
+-- TOC entry 234 (class 1259 OID 32817)
 -- Name: resenias; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -427,7 +429,7 @@ CREATE TABLE public.resenias (
 ALTER TABLE public.resenias OWNER TO "Grupo2PW";
 
 --
--- TOC entry 236 (class 1259 OID 24721)
+-- TOC entry 235 (class 1259 OID 32822)
 -- Name: resenias_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -444,7 +446,7 @@ ALTER TABLE public.resenias_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3445 (class 0 OID 0)
--- Dependencies: 236
+-- Dependencies: 235
 -- Name: resenias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -452,7 +454,7 @@ ALTER SEQUENCE public.resenias_id_seq OWNED BY public.resenias.id;
 
 
 --
--- TOC entry 215 (class 1259 OID 24580)
+-- TOC entry 236 (class 1259 OID 32823)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -466,7 +468,7 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO "Grupo2PW";
 
 --
--- TOC entry 214 (class 1259 OID 24579)
+-- TOC entry 237 (class 1259 OID 32826)
 -- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -483,7 +485,7 @@ ALTER TABLE public.usuarios_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3446 (class 0 OID 0)
--- Dependencies: 214
+-- Dependencies: 237
 -- Name: usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -491,7 +493,7 @@ ALTER SEQUENCE public.usuarios_id_seq OWNED BY public.usuarios.id;
 
 
 --
--- TOC entry 223 (class 1259 OID 24623)
+-- TOC entry 238 (class 1259 OID 32827)
 -- Name: ventas; Type: TABLE; Schema: public; Owner: Grupo2PW
 --
 
@@ -505,7 +507,7 @@ CREATE TABLE public.ventas (
 ALTER TABLE public.ventas OWNER TO "Grupo2PW";
 
 --
--- TOC entry 222 (class 1259 OID 24622)
+-- TOC entry 239 (class 1259 OID 32831)
 -- Name: ventas_id_seq; Type: SEQUENCE; Schema: public; Owner: Grupo2PW
 --
 
@@ -522,7 +524,7 @@ ALTER TABLE public.ventas_id_seq OWNER TO "Grupo2PW";
 
 --
 -- TOC entry 3447 (class 0 OID 0)
--- Dependencies: 222
+-- Dependencies: 239
 -- Name: ventas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: Grupo2PW
 --
 
@@ -530,7 +532,7 @@ ALTER SEQUENCE public.ventas_id_seq OWNED BY public.ventas.id;
 
 
 --
--- TOC entry 3234 (class 2604 OID 24590)
+-- TOC entry 3233 (class 2604 OID 32832)
 -- Name: administradores id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -538,7 +540,7 @@ ALTER TABLE ONLY public.administradores ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 3239 (class 2604 OID 24639)
+-- TOC entry 3234 (class 2604 OID 32833)
 -- Name: bibliotecas id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -546,7 +548,7 @@ ALTER TABLE ONLY public.bibliotecas ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- TOC entry 3236 (class 2604 OID 24614)
+-- TOC entry 3235 (class 2604 OID 32834)
 -- Name: carritos_de_compras id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -554,7 +556,7 @@ ALTER TABLE ONLY public.carritos_de_compras ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 3235 (class 2604 OID 24602)
+-- TOC entry 3237 (class 2604 OID 32835)
 -- Name: clientes id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -562,7 +564,7 @@ ALTER TABLE ONLY public.clientes ALTER COLUMN id SET DEFAULT nextval('public.cli
 
 
 --
--- TOC entry 3240 (class 2604 OID 24651)
+-- TOC entry 3236 (class 2604 OID 32836)
 -- Name: generos id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -570,7 +572,7 @@ ALTER TABLE ONLY public.generos ALTER COLUMN id SET DEFAULT nextval('public.cate
 
 
 --
--- TOC entry 3241 (class 2604 OID 24658)
+-- TOC entry 3238 (class 2604 OID 32837)
 -- Name: juegos id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -578,7 +580,7 @@ ALTER TABLE ONLY public.juegos ALTER COLUMN id SET DEFAULT nextval('public.juego
 
 
 --
--- TOC entry 3244 (class 2604 OID 24708)
+-- TOC entry 3239 (class 2604 OID 32838)
 -- Name: juegos_bibliotecas id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -586,7 +588,7 @@ ALTER TABLE ONLY public.juegos_bibliotecas ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 3242 (class 2604 OID 24672)
+-- TOC entry 3240 (class 2604 OID 32839)
 -- Name: juegos_carritos_de_compras id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -594,7 +596,7 @@ ALTER TABLE ONLY public.juegos_carritos_de_compras ALTER COLUMN id SET DEFAULT n
 
 
 --
--- TOC entry 3246 (class 2604 OID 24749)
+-- TOC entry 3241 (class 2604 OID 32840)
 -- Name: juegos_generos id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -602,7 +604,7 @@ ALTER TABLE ONLY public.juegos_generos ALTER COLUMN id SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 3243 (class 2604 OID 24689)
+-- TOC entry 3242 (class 2604 OID 32841)
 -- Name: juegos_ventas id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -610,7 +612,7 @@ ALTER TABLE ONLY public.juegos_ventas ALTER COLUMN id SET DEFAULT nextval('publi
 
 
 --
--- TOC entry 3245 (class 2604 OID 24725)
+-- TOC entry 3243 (class 2604 OID 32842)
 -- Name: resenias id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -618,7 +620,7 @@ ALTER TABLE ONLY public.resenias ALTER COLUMN id SET DEFAULT nextval('public.res
 
 
 --
--- TOC entry 3233 (class 2604 OID 24583)
+-- TOC entry 3244 (class 2604 OID 32843)
 -- Name: usuarios id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -626,7 +628,7 @@ ALTER TABLE ONLY public.usuarios ALTER COLUMN id SET DEFAULT nextval('public.usu
 
 
 --
--- TOC entry 3237 (class 2604 OID 24626)
+-- TOC entry 3245 (class 2604 OID 32844)
 -- Name: ventas id; Type: DEFAULT; Schema: public; Owner: Grupo2PW
 --
 
@@ -634,7 +636,7 @@ ALTER TABLE ONLY public.ventas ALTER COLUMN id SET DEFAULT nextval('public.venta
 
 
 --
--- TOC entry 3250 (class 2606 OID 24592)
+-- TOC entry 3248 (class 2606 OID 32846)
 -- Name: administradores administradores_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -643,7 +645,7 @@ ALTER TABLE ONLY public.administradores
 
 
 --
--- TOC entry 3258 (class 2606 OID 24641)
+-- TOC entry 3250 (class 2606 OID 32848)
 -- Name: bibliotecas bibliotecas_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -652,7 +654,7 @@ ALTER TABLE ONLY public.bibliotecas
 
 
 --
--- TOC entry 3254 (class 2606 OID 24616)
+-- TOC entry 3252 (class 2606 OID 32850)
 -- Name: carritos_de_compras carritos_de_compras_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -661,7 +663,7 @@ ALTER TABLE ONLY public.carritos_de_compras
 
 
 --
--- TOC entry 3252 (class 2606 OID 24604)
+-- TOC entry 3256 (class 2606 OID 32852)
 -- Name: clientes clientes_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -670,7 +672,7 @@ ALTER TABLE ONLY public.clientes
 
 
 --
--- TOC entry 3260 (class 2606 OID 24653)
+-- TOC entry 3254 (class 2606 OID 32854)
 -- Name: generos generos_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -679,7 +681,7 @@ ALTER TABLE ONLY public.generos
 
 
 --
--- TOC entry 3268 (class 2606 OID 24710)
+-- TOC entry 3260 (class 2606 OID 32856)
 -- Name: juegos_bibliotecas juegos_bibliotecas_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -688,7 +690,7 @@ ALTER TABLE ONLY public.juegos_bibliotecas
 
 
 --
--- TOC entry 3264 (class 2606 OID 24674)
+-- TOC entry 3262 (class 2606 OID 32858)
 -- Name: juegos_carritos_de_compras juegos_carritos_de_compras_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -697,7 +699,7 @@ ALTER TABLE ONLY public.juegos_carritos_de_compras
 
 
 --
--- TOC entry 3272 (class 2606 OID 24751)
+-- TOC entry 3264 (class 2606 OID 32860)
 -- Name: juegos_generos juegos_generos_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -706,7 +708,7 @@ ALTER TABLE ONLY public.juegos_generos
 
 
 --
--- TOC entry 3262 (class 2606 OID 24662)
+-- TOC entry 3258 (class 2606 OID 32862)
 -- Name: juegos juegos_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -715,7 +717,7 @@ ALTER TABLE ONLY public.juegos
 
 
 --
--- TOC entry 3266 (class 2606 OID 24693)
+-- TOC entry 3266 (class 2606 OID 32864)
 -- Name: juegos_ventas juegos_ventas_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -724,7 +726,7 @@ ALTER TABLE ONLY public.juegos_ventas
 
 
 --
--- TOC entry 3270 (class 2606 OID 24729)
+-- TOC entry 3268 (class 2606 OID 32866)
 -- Name: resenias resenias_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -733,7 +735,7 @@ ALTER TABLE ONLY public.resenias
 
 
 --
--- TOC entry 3248 (class 2606 OID 24585)
+-- TOC entry 3270 (class 2606 OID 32868)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -742,7 +744,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
--- TOC entry 3256 (class 2606 OID 24629)
+-- TOC entry 3272 (class 2606 OID 32870)
 -- Name: ventas ventas_pkey; Type: CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -751,7 +753,7 @@ ALTER TABLE ONLY public.ventas
 
 
 --
--- TOC entry 3273 (class 2606 OID 24593)
+-- TOC entry 3273 (class 2606 OID 32871)
 -- Name: administradores administradores_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -760,7 +762,7 @@ ALTER TABLE ONLY public.administradores
 
 
 --
--- TOC entry 3277 (class 2606 OID 24642)
+-- TOC entry 3274 (class 2606 OID 32876)
 -- Name: bibliotecas bibliotecas_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -769,7 +771,7 @@ ALTER TABLE ONLY public.bibliotecas
 
 
 --
--- TOC entry 3275 (class 2606 OID 24617)
+-- TOC entry 3275 (class 2606 OID 32881)
 -- Name: carritos_de_compras carritos_de_compras_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -778,7 +780,7 @@ ALTER TABLE ONLY public.carritos_de_compras
 
 
 --
--- TOC entry 3274 (class 2606 OID 24605)
+-- TOC entry 3276 (class 2606 OID 32886)
 -- Name: clientes clientes_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -787,7 +789,7 @@ ALTER TABLE ONLY public.clientes
 
 
 --
--- TOC entry 3282 (class 2606 OID 24711)
+-- TOC entry 3277 (class 2606 OID 32891)
 -- Name: juegos_bibliotecas juegos_bibliotecas_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -796,7 +798,7 @@ ALTER TABLE ONLY public.juegos_bibliotecas
 
 
 --
--- TOC entry 3283 (class 2606 OID 24716)
+-- TOC entry 3278 (class 2606 OID 32896)
 -- Name: juegos_bibliotecas juegos_bibliotecas_fkey2; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -805,7 +807,7 @@ ALTER TABLE ONLY public.juegos_bibliotecas
 
 
 --
--- TOC entry 3278 (class 2606 OID 24675)
+-- TOC entry 3279 (class 2606 OID 32901)
 -- Name: juegos_carritos_de_compras juegos_carritos_de_compras_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -814,7 +816,7 @@ ALTER TABLE ONLY public.juegos_carritos_de_compras
 
 
 --
--- TOC entry 3279 (class 2606 OID 24680)
+-- TOC entry 3280 (class 2606 OID 32906)
 -- Name: juegos_carritos_de_compras juegos_carritos_de_compras_fkey2; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -823,7 +825,7 @@ ALTER TABLE ONLY public.juegos_carritos_de_compras
 
 
 --
--- TOC entry 3286 (class 2606 OID 24752)
+-- TOC entry 3281 (class 2606 OID 32911)
 -- Name: juegos_generos juegos_generos_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -832,7 +834,7 @@ ALTER TABLE ONLY public.juegos_generos
 
 
 --
--- TOC entry 3287 (class 2606 OID 24757)
+-- TOC entry 3282 (class 2606 OID 32916)
 -- Name: juegos_generos juegos_generos_fkey2; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -841,7 +843,7 @@ ALTER TABLE ONLY public.juegos_generos
 
 
 --
--- TOC entry 3280 (class 2606 OID 24694)
+-- TOC entry 3283 (class 2606 OID 32921)
 -- Name: juegos_ventas juegos_ventas_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -850,7 +852,7 @@ ALTER TABLE ONLY public.juegos_ventas
 
 
 --
--- TOC entry 3281 (class 2606 OID 24699)
+-- TOC entry 3284 (class 2606 OID 32926)
 -- Name: juegos_ventas juegos_ventas_fkey2; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -859,7 +861,7 @@ ALTER TABLE ONLY public.juegos_ventas
 
 
 --
--- TOC entry 3284 (class 2606 OID 24730)
+-- TOC entry 3285 (class 2606 OID 32931)
 -- Name: resenias resenias_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -868,7 +870,7 @@ ALTER TABLE ONLY public.resenias
 
 
 --
--- TOC entry 3285 (class 2606 OID 24735)
+-- TOC entry 3286 (class 2606 OID 32936)
 -- Name: resenias resenias_fkey2; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -877,7 +879,7 @@ ALTER TABLE ONLY public.resenias
 
 
 --
--- TOC entry 3276 (class 2606 OID 24630)
+-- TOC entry 3287 (class 2606 OID 32941)
 -- Name: ventas ventas_fkey; Type: FK CONSTRAINT; Schema: public; Owner: Grupo2PW
 --
 
@@ -885,7 +887,7 @@ ALTER TABLE ONLY public.ventas
     ADD CONSTRAINT ventas_fkey FOREIGN KEY (cliente_id) REFERENCES public.clientes(id) NOT VALID;
 
 
--- Completed on 2024-12-01 13:20:38
+-- Completed on 2024-12-02 13:40:06
 
 --
 -- PostgreSQL database dump complete

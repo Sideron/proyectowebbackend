@@ -1,5 +1,8 @@
 import { Administrador } from "../models/admin.js"
+import { Biblioteca } from "../models/biblioteca.js"
+import { Carrito } from "../models/carrito.js"
 import { Cliente } from "../models/cliente.js"
+import { Resenia } from "../models/resenia.js"
 import { Usuario } from "../models/usuario.js"
 
 const usuarios = (app) => {
@@ -95,8 +98,14 @@ const usuarios = (app) => {
                 nombre: usuario,
                 contrasenia: contrasenia
             })
-            await Cliente.create({
+            const myClient = await Cliente.create({
                 usuario_id: myUser.dataValues.id
+            })
+            await Biblioteca.create({
+                cliente_id: myClient.dataValues.id
+            })
+            await Carrito.create({
+                cliente_id: myClient.dataValues.id
             })
             console.log(myUser.dataValues.id)
         } catch (error) {
@@ -198,6 +207,11 @@ const usuarios = (app) => {
                console.log(idAdmin[0].dataValues)
             }
             if(idClient.length > 0){
+                await Resenia.destroy({
+                    where:{
+                        cliente_id: parseInt(idClient[0].dataValues.id)
+                    }
+                })
                 await Cliente.destroy({
                     where:{
                         id: parseInt(idClient[0].dataValues.id)
