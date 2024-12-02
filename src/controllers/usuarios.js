@@ -34,7 +34,7 @@ const usuarios = (app) => {
         }else {
             // Error login
             const dataOutput = {
-                error : "Error en el login."
+                error : "Usuario o contraseña incorrecto"
             }
             resp.status(400).send(dataOutput)
         }
