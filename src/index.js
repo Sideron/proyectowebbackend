@@ -8,6 +8,7 @@ import generos from "./controllers/generos.js"
 
 const app = express()
 app.use(bodyParser.json())
+app.use(cors());
 const port = 3001
 
 try{

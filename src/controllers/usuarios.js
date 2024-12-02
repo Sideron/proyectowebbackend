@@ -6,7 +6,7 @@ import { Resenia } from "../models/resenia.js"
 import { Usuario } from "../models/usuario.js"
 
 const usuarios = (app) => {
-    app.get("/usuarios",async(req,resp) => {
+    app.post("/usuarios",async(req,resp) => {
         const {usuario,contrasenia} = req.body
 
         if(usuario == undefined || contrasenia == undefined){
