@@ -4,14 +4,20 @@ import { sequelize } from "./database.js"
 import { Juego } from "./models/juego.js"
 
 const app = express()
+const port = 3001
 
-await sequelize.sync({force:false})
+try{
+    await sequelize.sync({force:false})
 
-app.get('/juegos', async (req, res) => {
-    const juegos = await Juego.findAll()
-    res.send(juegos)
-})
+    app.get('/juegos', async (req, res) => {
+        const juegos = await Juego.findAll()
+        res.send(juegos)
+    })
 
-app.listen(3001,()=>{
-    console.log("Conectado en el puerto 3001")
-})
+    app.listen(port,()=>{
+        console.log("Conectado en el puerto "+port)
+    })
+
+} catch (error) {
+    console.log("Error: ",error)
+}
