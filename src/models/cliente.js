@@ -3,6 +3,7 @@ import { sequelize } from "../database.js";
 import { Resenia } from "./resenia.js";
 import { Biblioteca } from "./biblioteca.js";
 import { Venta } from "./venta.js";
+import { Carrito } from "./carrito.js";
 
 export const Cliente = sequelize.define('clientes',{
     id:{
@@ -38,6 +39,16 @@ Cliente.hasMany(Venta,{
 })
 
 Venta.belongsTo(Cliente,{
+    foreignKey: 'cliente_id',
+    targetKey: 'id'
+})
+
+Cliente.hasMany(Carrito,{
+    foreignKey: 'cliente_id',
+    sourceKey: 'id'
+})
+
+Carrito.belongsTo(Cliente,{
     foreignKey: 'cliente_id',
     targetKey: 'id'
 })
