@@ -13,19 +13,19 @@ const login = (app) => {
             return
         }
 
-        const usuarios = await Usuario.findAll({
+        const listaUsuarios = await Usuario.findAll({
             where:{
                 nombre: usuario,
                 contrasenia: contrasenia
             }
         })
 
-        if (usuarios.length > 0) {
+        if (listaUsuarios.length > 0) {
             // Login exitoso
             const dataOutput = {
                 error : ""
             }
-            resp.send(usuarios[0])
+            resp.send(listaUsuarios[0])
         }else {
             // Error login
             const dataOutput = {
@@ -36,17 +36,17 @@ const login = (app) => {
     })
     app.get("/login/:id",async (req, resp) => {
         const id = req.params.id
-        const usuarios = await Usuario.findAll({
+        const miusuario = await Usuario.findAll({
             where:{
                 id
             }
         })
-        if (usuarios.length > 0) {
+        if (miusuario.length > 0) {
             // Login exitoso
             const dataOutput = {
                 error : ""
             }
-            resp.send(usuarios[0])
+            resp.send(miusuario[0])
         }else {
             // Error login
             const dataOutput = {
