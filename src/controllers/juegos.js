@@ -27,7 +27,12 @@ const juegos = (app) => {
             const miJuego = await Juego.findAll({
                 where:{
                     id:id
-                }
+                },
+                include: [{
+                    model: Genero,
+                    attributes: ['id', 'nombre'],
+                    through: { attributes: [] }
+                }]
             })
             res.send(miJuego[0])
         } catch (error) {

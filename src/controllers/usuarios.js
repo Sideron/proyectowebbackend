@@ -4,7 +4,6 @@ import { Carrito } from "../models/carrito.js"
 import { Cliente } from "../models/cliente.js"
 import { Resenia } from "../models/resenia.js"
 import { Usuario } from "../models/usuario.js"
-import { Venta } from "../models/venta.js"
 
 const usuarios = (app) => {
     app.get("/usuarios",async(req,resp) => {
