@@ -12,6 +12,21 @@ const juegos = (app) => {
         }
         
     })
+    app.get('/juegos/:id', async (req,resp) => {
+        const id = parseInt(req.params.id)
+        try {
+            const miJuego = await Juego.findAll({
+                where:{
+                    id:id
+                }
+            })
+            res.send(miJuego[0])
+        } catch (error) {
+            res.status(500).send({
+                error: error
+            })
+        }
+    })
 }
 
 export default juegos
