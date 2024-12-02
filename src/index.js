@@ -2,7 +2,7 @@ import express from "express"
 import bodyParser from "body-parser"
 import cors from "cors"
 import { sequelize } from "./database.js"
-import login from "./controllers/login.js"
+import usuarios from "./controllers/usuarios.js"
 import juegos from "./controllers/juegos.js"
 
 const app = express()
@@ -12,7 +12,7 @@ const port = 3001
 try{
     await sequelize.sync({force:false})
 
-    login(app)
+    usuarios(app)
     juegos(app)
 
     app.listen(port,()=>{
