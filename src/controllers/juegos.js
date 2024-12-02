@@ -1,10 +1,17 @@
+import { Genero } from "../models/genero.js"
 import { Juego } from "../models/juego.js"
+import { Juego_genero } from "../models/juego_genero.js"
 
 const juegos = (app) => {
     app.get('/juegos', async (req,res) => {
         try {
             const listaJuegos = await Juego.findAll({
-                attributes: ['id','nombre', 'imagen_url', 'precio_actual']
+                attributes: ['id','nombre', 'imagen_url', 'precio_actual'],
+                include: [{
+                    model: Genero,
+                    attributes: ['id', 'nombre'],
+                    through: { attributes: [] }
+                }]
             })
             res.send(listaJuegos)
         } catch (error) {
