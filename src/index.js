@@ -1,18 +1,17 @@
 import express from "express"
+import bodyParser from "body-parser"
 import cors from "cors"
 import { sequelize } from "./database.js"
-import { Juego } from "./models/juego.js"
+import login from "./controllers/login.js"
 
 const app = express()
+app.use(bodyParser.json())
 const port = 3001
 
 try{
     await sequelize.sync({force:false})
 
-    app.get('/juegos', async (req, res) => {
-        const juegos = await Juego.findAll()
-        res.send(juegos)
-    })
+    login(app)
 
     app.listen(port,()=>{
         console.log("Conectado en el puerto "+port)
