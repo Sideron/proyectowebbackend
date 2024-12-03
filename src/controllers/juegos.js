@@ -9,7 +9,7 @@ const juegos = (app) => {
                 attributes: ['id','nombre', 'imagen_url', 'precio_actual'],
                 include: [{
                     model: Genero,
-                    attributes: ['id', 'nombre'],
+                    attributes: ['nombre'],
                     through: { attributes: [] }
                 }]
             })

@@ -60,7 +60,7 @@ const usuarios = (app) => {
             resp.status(400).send(dataOutput)
         }
     })
-    app.post('/usuarios', async (req,resp) => {
+    app.post('/cliente', async (req,resp) => {
         const {usuario,contrasenia} = req.body
 
         if(usuario == undefined || contrasenia == undefined){
